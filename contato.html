@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contato | Arthur Aganete</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    .contato-container {
+      max-width: 800px;
+      margin: 4rem auto;
+      padding: 2rem;
+      background: var(--card-color);
+      border-radius: 16px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      animation: aparecer 1s ease forwards;
+    }
+
+    .contato-container h1 {
+      text-align: left;
+      color: var(--accent-color);
+      font-size: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 0.8rem 1rem;
+      border: 2px solid var(--accent-color);
+      border-radius: 8px;
+      background: transparent;
+      color: var(--text-color);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+    }
+
+    input:focus, textarea:focus {
+      outline: none;
+      background: rgba(0,0,0,0.05);
+      box-shadow: 0 0 10px var(--accent-color);
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: none;
+    }
+
+    .btn-enviar {
+      background: var(--accent-color);
+      color: #fff;
+      border: none;
+      padding: 0.9rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn-enviar:hover {
+      opacity: 0.85;
+      transform: scale(1.03);
+    }
+
+
+    @media (max-width: 768px) {
+      .contato-container {
+        margin: 2rem 1rem;
+      }
+      .contato-container h1 {
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+ <header>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="sobre.html">Sobre</a>
+    <a href="habilidades.html">Habilidades</a>
+    <a href="projetos.html">Projetos</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+  <button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+</header>
+
+  </header>
+
+  <main>
+    <div class="contato-container fade-in">
+      <h1>Entre em Contato</h1>
+      <form id="whatsappForm">
+        <input type="text" id="nome" placeholder="Seu nome" required>
+        <input type="email" id="email" placeholder="Seu e-mail" required>
+        <textarea id="mensagem" placeholder="Digite sua mensagem..." required></textarea>
+        <button type="submit" class="btn-enviar">Enviar pelo WhatsApp</button>
+      </form>
+
+      
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Arthur Aganete. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+   
+    document.getElementById("whatsappForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const mensagem = document.getElementById("mensagem").value;
+
+      const texto = `*Novo contato pelo portfólio!*%0A%0A👤 *Nome:* ${nome}%0A📧 *E-mail:* ${email}%0A💬 *Mensagem:* ${mensagem}`;
+      const numero = "5531997514788"; // seu número com DDI + DDD
+
+      window.open(`https://wa.me/${numero}?text=${texto}`, "_blank");
+    });
+  </script>
+</body>
+</html>
+

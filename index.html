@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arthur Aganete | Desenvolvedor Front-End</title>
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+   
+    /* ===== HERO SECTION ===== */
+    .hero {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 85vh;
+      text-align: center;
+      padding: 2rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .hero-text {
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    .hero-text h1 {
+      font-size: 2.6rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      animation: slideIn 1s ease-out forwards;
+    }
+
+    /* Nome com gradiente animado */
+    .hero-text .nome {
+      background: linear-gradient(90deg, #007bff, #00ffcc, #007bff);
+      background-size: 300%;
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+      animation: gradientMove 4s ease infinite;
+      font-weight: 800;
+      display: inline-block;
+      white-space: nowrap;
+    }
+
+    /* Cursor piscante */
+    .cursor {
+      display: inline-block;
+      width: 2px;
+      height: 1.1em;
+      background: var(--accent-color);
+      margin-left: 6px;
+      vertical-align: middle;
+      animation: blink 0.8s infinite;
+    }
+
+    /* Parágrafo animado */
+    .hero-text p {
+      font-size: 1.1rem;
+      opacity: 0;
+      animation: fadeIn 2s ease forwards 2.2s;
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+    }
+
+    /* Botões com brilho */
+    .buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      animation: fadeIn 1s ease forwards 2.8s;
+    }
+
+    .btn {
+      position: relative;
+      overflow: hidden;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 0.8rem 1.4rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 0 20px var(--accent-color);
+    }
+
+    .btn::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 120%;
+      height: 100%;
+      background: rgba(255,255,255,0.15);
+      transform: skewX(-20deg);
+      transition: left 0.65s;
+    }
+
+    .btn:hover::before {
+      left: 120%;
+    }
+
+    /* ===== ANIMAÇÕES ===== */
+    @keyframes blink {
+      50% { opacity: 0; }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes gradientMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    @keyframes slideIn {
+      0% { transform: translateY(30px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+
+    /* Responsividade */
+    @media (max-width: 720px) {
+      .hero-text h1 { font-size: 1.8rem; }
+      .hero-text p { font-size: 1rem; }
+      nav { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Removido o logo "Arthur Aganete" -->
+    <nav>
+      <a href="index.html" class="active">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="habilidades.html">Habilidades</a>
+      <a href="projetos.html">Projetos</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+    <button id="theme-toggle" aria-label="Alternar tema">🌙</button>
+  </header>
+
+  <main class="hero">
+    <div class="hero-text">
+      <h1>Olá, eu sou <span id="nomeTyped" class="nome"></span><span class="cursor"></span></h1>
+      <p>Desenvolvedor Front-End apaixonado por criar interfaces modernas e responsivas.</p>
+   <div class="buttons">
+  <a href="https://www.linkedin.com/in/arthur-aganete-116558307" target="_blank" class="btn">LinkedIn</a>
+  <a href="https://github.com/Arthuraganett" target="_blank" class="btn">GitHub</a>
+  <a href="curriculo.pdf" class="btn" download>Baixar Currículo</a>
+</div>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>© 2025 Arthur Aganete. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="script.js"></script>
+  <script>
+    // Efeito de digitação
+    (function() {
+      const nomeEl = document.getElementById('nomeTyped');
+      if (!nomeEl) return;
+      const text = 'Arthur Aganete';
+      let i = 0;
+      nomeEl.textContent = '';
+      function type() {
+        if (i < text.length) {
+          nomeEl.textContent += text.charAt(i);
+          i++;
+          setTimeout(type, 80);
+        }
+      }
+      setTimeout(type, 600);
+    })();
+  </script>
+</body>
+</html>
