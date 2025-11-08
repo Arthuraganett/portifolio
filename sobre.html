@@ -1,147 +1,38 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Sobre | Arthur Aganete</title>
-  <link rel="stylesheet" href="styles.css" />
-  <style>
-    /* Container geral */
-    .sobre {
-      padding: 4rem 1rem;
-      display: flex;
-      justify-content: center;
-    }
-
-    .sobre-container {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 8rem;             /* Aumentei bastante o espaçamento entre texto e imagem */
-      flex-wrap: nowrap;     /* força lado a lado em telas suficientes */
-      max-width: 1200px;
-      width: 100%;
-      margin: 0 1rem;
-      padding: 1rem;
-    }
-
-    /* Texto */
-    .sobre-texto {
-      flex: 1 1 540px;       /* prioriza o texto, ocupa mais espaço */
-      min-width: 320px;
-      text-align: left;
-      line-height: 1.65;
-      margin-right: 2rem;    /* margem extra para distanciar da imagem */
-      transition: transform 0.5s ease, opacity 0.5s ease;
-    }
-
-    .sobre-texto h1 {
-      color: var(--accent-color);
-      margin: 0 0 1rem 0;
-      position: relative;
-      top: -1.2rem;          /* empurra o título um pouco para cima */
-    }
-
-    .sobre-texto p {
-      margin-bottom: 1rem;
-      color: var(--text-color);
-      font-size: 1rem;
-    }
-
-    /* Imagem */
-    .sobre-imagem {
-      flex: 0 0 360px;       /* largura fixa para a imagem, mantendo proporção */
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      margin-top: 0.5rem;
-      transform-origin: center;
-      animation: flutuar 3.2s ease-in-out infinite;
-    }
-
-    .sobre-imagem img {
-      width: 100%;
-      max-width: 360px;
-      height: auto;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.18);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-
-    .sobre-imagem img:hover {
-      transform: translateY(-6px) scale(1.02);
-      box-shadow: 0 18px 40px rgba(0,0,0,0.22);
-    }
-
-    @keyframes flutuar {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0); }
-    }
-
-    /* Responsividade: em telas menores, empilha verticalmente e aumenta o espaçamento superior */
-    @media (max-width: 980px) {
-      .sobre-container {
-        gap: 3rem;
-        flex-wrap: wrap;
-      }
-      .sobre-texto {
-        flex: 1 1 100%;
-        margin-right: 0;
-      }
-      .sobre-imagem {
-        flex: 1 1 100%;
-        margin-top: 1.5rem;
-      }
-    }
-
-    @media (max-width: 720px) {
-      .sobre-container {
-        flex-direction: column;
-        gap: 1.5rem;
-        align-items: center;
-      }
-      .sobre-texto { text-align: center; top: 0; }
-      .sobre-texto h1 { margin-top: 0; }
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sobre - Portfólio</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header>
     <nav>
-      <a href="index.html">Início</a>
-      <a href="sobre.html" class="active">Sobre</a>
-      <a href="habilidades.html">Habilidades</a>
-      <a href="projetos.html">Projetos</a>
-      <a href="contato.html">Contato</a>
+      <ul>
+        <li><a href="index.html">início</a></li>
+        <li><a href="sobre.html" class="ativo">sobre</a></li>
+        <li><a href="habilidades.html">habilidades</a></li>
+        <li><a href="projetos.html">projetos</a></li>
+        <li><a href="contatos.html">contatos</a></li>
+        <label class="switch">
+            <input type="checkbox" onclick="dark()">
+            <span class="slider round"></span>
+          </label>
+      </ul>
+    
     </nav>
-    <button id="theme-toggle" aria-label="Alternar tema">🌙</button>
   </header>
 
   <main class="sobre">
-    <div class="sobre-container">
-      <div class="sobre-texto">
-        <h1>Sobre Mim</h1>
-        <p>
-          Sou um desenvolvedor front-end dedicado a transformar ideias em experiências digitais atraentes e funcionais.
-          Tenho domínio de tecnologias como <strong>HTML</strong>, <strong>CSS</strong> e <strong>JavaScript</strong>, além de conhecimentos em frameworks modernos.
-        </p>
-        <p>
-          Busco constantemente aprender novas ferramentas e aprimorar minhas habilidades em design responsivo, acessibilidade e performance web.
-          Acredito que projetos bem-sucedidos nascem da união entre código limpo, design pensado e comunicação clara.
-        </p>
-      </div>
-
-      <div class="sobre-imagem">
-        <!-- imagem enviada por você -->
-        <img src="20250215_233816(0).jpg" alt="Foto de Arthur Aganete" />
-      </div>
-    </div>
+    <h2 class="titulo verde">SOBRE</h2>
+    <p>
+      Minha paixão por tecnologia me impulsiona a converter ideias em soluções tangíveis.
+      Com formação técnica em Informática, pelo Colégio e Cotemig, respectivamente, adquiri experiência em projetos acadêmicos e práticos.
+      Minhas habilidades abrangem desenvolvimento de sistemas, bancos de dados e infraestrutura.
+      Meu objetivo é continuar meu crescimento na área de TI, colaborando em projetos que façam uma diferença genuína para indivíduos e organizações.
+    </p>
   </main>
-
-  <footer>
-    <p>© 2025 Arthur Aganete. Todos os direitos reservados.</p>
-  </footer>
 
   <script src="script.js"></script>
 </body>
